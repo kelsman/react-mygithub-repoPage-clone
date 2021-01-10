@@ -63,16 +63,21 @@ class Explore extends Component {
         this.setState({ searchField: e.target.value })
     }
 
+    languageFilter = (lang) => {
+
+
+    }
 
     render() {
         const { openRepos, showDefault, openProject, openPackages, searchField } = this.state;
         const { repos, searchValue, loading } = this.props;
-        console.log(repos);
+
 
 
         const FilteredRepos = this.state.Repos.filter((repo) => {
-            return repo.name.includes(searchField);
+            return repo.name.toLowerCase().includes(searchField.toLowerCase());
         });
+
         return (
 
             <div className="explore-wrapper">
